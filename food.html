@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Places That Sell Coffee on King Street | Charleston, SC</title>
+  <meta name="description" content="The best food places that sell coffee on King Street in Charleston, SC. Find cafés, restaurants, and eateries serving great coffee alongside their menus."/>
+  <meta name="keywords" content="food places that sell coffee king street charleston, restaurants with coffee charleston, cafes with food king street, coffee and food charleston sc"/>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+  <style>
+    :root {
+      --off-white: #f9f7f4;
+      --dark: #1e1e1e;
+      --light-gray: #e8e4de;
+      --accent: #c07d3e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lora', serif; }
+
+    /* ── NAV ── */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      background: #fff;
+      border-bottom: 1px solid var(--light-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-right a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-right a:hover { color: var(--accent); }
+
+    .btn-order {
+      background: var(--dark);
+      color: #fff !important;
+      padding: 9px 24px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-order:hover { background: var(--accent); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--off-white);
+      padding: 64px 60px 52px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .page-header .breadcrumb-line {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .page-header .breadcrumb-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: #5a5a5a;
+      max-width: 620px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ── INTRO ── */
+    .intro-section {
+      padding: 64px 60px;
+    }
+
+    .intro-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .intro-section p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 18px;
+      max-width: 700px;
+    }
+
+    /* ── LISTING CARDS ── */
+    .listings-section {
+      padding: 0 60px 64px;
+    }
+
+    .listing-card {
+      background: #fff;
+      border: 1px solid var(--light-gray);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 100%;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .listing-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .listing-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .listing-card-body {
+      padding: 22px 22px 24px;
+    }
+
+    .listing-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(192,125,62,0.1);
+      border-radius: 4px;
+      padding: 3px 9px;
+      margin-bottom: 10px;
+    }
+
+    .listing-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .listing-meta {
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .open-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: #5caa72;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .listing-card p {
+      font-size: 0.88rem;
+      color: #5a5a5a;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .coffee-badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .coffee-badge i { color: var(--accent); }
+
+    /* ── FULL-WIDTH IMAGE BREAK ── */
+    .img-break {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      object-position: center 55%;
+      display: block;
+    }
+
+    /* ── WHY SECTION ── */
+    .why-section {
+      padding: 64px 60px;
+      background: var(--off-white);
+    }
+
+    .why-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 36px;
+    }
+
+    .why-card {
+      padding: 0 12px;
+    }
+
+    .why-card .why-icon {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .why-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 0.88rem;
+      color: #5a5a5a;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── TYPES SECTION ── */
+    .types-section {
+      padding: 64px 60px;
+    }
+
+    .types-section h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .types-section p {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .type-row {
+      border-top: 1px solid var(--light-gray);
+      padding: 22px 0;
+    }
+
+    .type-row:last-child {
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .type-row h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .type-row p {
+      font-size: 0.88rem;
+      color: #5a5a5a;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 100%;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222;
+      color: rgba(255,255,255,0.7);
+      padding: 52px 60px 24px;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    footer p { font-size: 0.88rem; line-height: 2; margin: 0; }
+
+    footer a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      line-height: 2;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    .footer-links { margin-top: 14px; }
+    .footer-links a {
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      text-decoration: underline;
+      margin-right: 18px;
+    }
+
+    .footer-social { margin-top: 14px; }
+    .footer-social a {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      margin-right: 14px;
+      text-decoration: none;
+    }
+
+    .footer-social a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 36px;
+      padding-top: 18px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .top-nav { padding: 12px 20px; }
+      .page-header,
+      .intro-section,
+      .listings-section,
+      .why-section,
+      .types-section { padding-left: 20px; padding-right: 20px; }
+      footer { padding: 40px 24px 20px; }
+      .img-break { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="top-nav">
+  <a href="kingstreetcoffeeshop.html" class="nav-logo">KC</a>
+  <div class="nav-right">
+    <a href="kingstreetcoffeeshop.html">Directory</a>
+    <a href="kingstreetcoffeeshop-about.html">About</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <p class="breadcrumb-line"><a href="kingstreetcoffeeshop.html">Home</a> &nbsp;/&nbsp; Food Places That Sell Coffee</p>
+  <h1>Food Places That Sell Coffee on King Street</h1>
+  <p>Not every great cup of coffee comes from a dedicated café. Some of the best coffee on King Street is poured at restaurants, brunch spots, and casual eateries that take their drinks just as seriously as their food.</p>
+</header>
+
+<!-- ── INTRO ── -->
+<section class="intro-section">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-6">
+      <h2>Where Good Food Meets Great Coffee</h2>
+      <p>Charleston's King Street dining scene has quietly become one of the best places in the Southeast to eat and drink well — and that includes the coffee. Across the strip and surrounding blocks, you'll find breakfast joints, brunch spots, sandwich counters, and casual lunch spots where the espresso machine gets as much attention as the kitchen.</p>
+      <p>This page is dedicated to those hybrid spots: places where you came for the food and left thinking about the latte. Whether you want a full eggs-and-toast breakfast with a proper flat white, or a quick sandwich and an iced coffee before an afternoon of shopping, King Street has exactly what you're looking for.</p>
+    </div>
+    <div class="col-lg-6">
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80"
+        alt="Food and coffee together at a King Street café"
+        style="width:100%; height:310px; object-fit:cover; border-radius:10px; display:block;"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ── LISTING CARDS ── -->
+<section class="listings-section">
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?w=800&q=80" alt="Brunch spot with coffee King Street Charleston"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Brunch &amp; Coffee</span>
+          <h3>The Morning Table</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> Upper King</span>
+          </div>
+          <p>A proper sit-down brunch spot where the coffee program gets the same care as the kitchen. The espresso is sourced locally, and the drip is always fresh. Order something off the egg menu and a cortado — you won't regret it.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Espresso · Drip · Cold Brew</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=80" alt="Sandwich café with lattes Charleston"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Sandwiches &amp; Café</span>
+          <h3>Counter & Press</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> Lower King</span>
+          </div>
+          <p>Pressed sandwiches, seasonal soups, and a surprisingly excellent latte bar tucked into the corner. The lunch crowd fills it up quickly — get here early or expect a short wait that's absolutely worth it.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Lattes · Cappuccino · Iced Coffee</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80" alt="Casual eatery with coffee King Street"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Casual Eats</span>
+          <h3>Plate &amp; Perch</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> King &amp; Calhoun</span>
+          </div>
+          <p>A fast-casual spot that refuses to cut corners on the drink side. The house drip rotates weekly, and the oat milk latte has earned a devoted following among the lunch regulars who come back every weekday.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Drip · Lattes · Oat Milk Options</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" alt="Bakery café with espresso Charleston"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Bakery &amp; Espresso</span>
+          <h3>Flour & Fold</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> Cannonborough</span>
+          </div>
+          <p>Artisan pastries and fresh-baked breads paired with a tight espresso menu. The croissant and flat white combination is the kind of thing that makes a slow Saturday morning feel like a special occasion.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Flat White · Espresso · Macchiato</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&q=80" alt="Breakfast spot with coffee downtown Charleston"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Breakfast All Day</span>
+          <h3>Early Bird Kitchen</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> King Street</span>
+          </div>
+          <p>All-day breakfast served with coffee that's actually worth ordering. The avocado toast and a vanilla latte is the house pairing everyone seems to end up with — and there's a good reason for that.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Lattes · Drip · Seasonal Specials</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="listing-card">
+        <img src="https://images.unsplash.com/photo-1498579150354-977475b7ea0b?w=800&q=80" alt="Lunch spot with cold brew Charleston"/>
+        <div class="listing-card-body">
+          <span class="listing-tag">Lunch &amp; Cold Brew</span>
+          <h3>The Noon Break</h3>
+          <div class="listing-meta">
+            <span class="open-dot"></span>Open Now
+            <span><i class="bi bi-geo-alt"></i> Upper King</span>
+          </div>
+          <p>Built for the midday crowd: fast, fresh lunch options alongside cold brew on tap and a rotating menu of iced lattes. The grain bowls are popular, and the coffee keeps the afternoon going.</p>
+          <div class="coffee-badge"><i class="bi bi-cup-hot-fill"></i> Cold Brew · Iced Latte · Nitro</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── IMAGE BREAK ── -->
+<img
+  src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1600&q=80"
+  alt="Coffee and food Charleston King Street"
+  class="img-break"
+/>
+
+<!-- ── WHY IT MATTERS ── -->
+<section class="why-section">
+  <h2>Why Coffee &amp; Food Go Together</h2>
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-3">
+      <div class="why-card">
+        <span class="why-icon"><i class="bi bi-egg-fried"></i></span>
+        <h4>A Complete Experience</h4>
+        <p>The best meals deserve the best drinks to go with them. A well-made espresso or a creamy latte rounds out a meal in a way that nothing else quite does.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="why-card">
+        <span class="why-icon"><i class="bi bi-clock"></i></span>
+        <h4>One Stop, Done</h4>
+        <p>When your food spot also does great coffee, you don't need to plan two separate stops. Eat well, drink well, get on with your day — King Street makes that easy.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="why-card">
+        <span class="why-icon"><i class="bi bi-people-fill"></i></span>
+        <h4>Built for Lingering</h4>
+        <p>Food-and-coffee spots tend to encourage you to stay a little longer. They're designed for conversation, for catching up, for turning a meal into an actual break in your day.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+      <div class="why-card">
+        <span class="why-icon"><i class="bi bi-star-fill"></i></span>
+        <h4>Quality Across the Board</h4>
+        <p>A place that takes its food seriously usually takes its coffee seriously too. The standards that make a great kitchen tend to carry through to everything on the menu.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── TYPES OF SPOTS ── -->
+<section class="types-section">
+  <div class="row g-5">
+    <div class="col-lg-5">
+      <h2>Types of Food &amp; Coffee Spots on King Street</h2>
+      <p>King Street isn't short on options when it comes to eating and drinking well in the same place. Here's a breakdown of the main formats you'll find in the neighborhood.</p>
+    </div>
+    <div class="col-lg-7">
+
+      <div class="type-row row align-items-start">
+        <div class="col-3 col-md-2">
+          <span style="font-size:1.5rem; color:var(--accent);"><i class="bi bi-sunrise-fill"></i></span>
+        </div>
+        <div class="col">
+          <h4>Breakfast &amp; Brunch Cafés</h4>
+          <p>Morning-focused spots that serve full menus alongside a proper espresso bar. These tend to be the best of both worlds — kitchen quality food with barista-level coffee.</p>
+        </div>
+      </div>
+
+      <div class="type-row row align-items-start">
+        <div class="col-3 col-md-2">
+          <span style="font-size:1.5rem; color:var(--accent);"><i class="bi bi-bag-fill"></i></span>
+        </div>
+        <div class="col">
+          <h4>Counter Service &amp; Delis</h4>
+          <p>Quick-service spots built for the lunch rush. Sandwiches, wraps, and grain bowls paired with iced lattes or drip coffee. Fast without being careless.</p>
+        </div>
+      </div>
+
+      <div class="type-row row align-items-start">
+        <div class="col-3 col-md-2">
+          <span style="font-size:1.5rem; color:var(--accent);"><i class="bi bi-shop"></i></span>
+        </div>
+        <div class="col">
+          <h4>Bakeries with Espresso Bars</h4>
+          <p>Fresh-baked goods and a focused coffee menu. Usually smaller and more neighborhood-oriented — the kind of place locals guard jealously and tell visiting friends about quietly.</p>
+        </div>
+      </div>
+
+      <div class="type-row row align-items-start">
+        <div class="col-3 col-md-2">
+          <span style="font-size:1.5rem; color:var(--accent);"><i class="bi bi-cup-straw"></i></span>
+        </div>
+        <div class="col">
+          <h4>All-Day Casual Eateries</h4>
+          <p>Open from morning through late afternoon, these spots serve a flexible menu — light bites, heavier plates, coffee drinks, and often energy drinks — all under one roof.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="row g-5">
+
+    <div class="col-md-5">
+      <h5>King Street Coffee Guide</h5>
+      <p>
+        King Street, Charleston, SC<br/>
+        An independent local directory
+      </p>
+      <div class="footer-links">
+        <a href="kingstreetcoffeeshop.html">Directory</a>
+        <a href="kingstreetcoffeeshop-about.html">About</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h5>King Street Coffee Directory</h5>
+      <p>
+        <a href="#">Black Tap Craft Coffee</a><br/>
+        <a href="#">The Daily</a><br/>
+        <a href="#">Kudu Coffee &amp; Craft Beer</a><br/>
+        <a href="#">Revelator Coffee</a><br/>
+        <a href="#">Bitty &amp; Beau's Coffee</a><br/>
+        <a href="#">Mercantile &amp; Mash</a>
+      </p>
+    </div>
+
+    <div class="col-md-3">
+      <h5>Explore</h5>
+      <p>
+        <a href="kingstreetcoffeeshop.html">Home</a><br/>
+        <a href="kingstreetcoffeeshop-about.html">About</a><br/>
+        <a href="#">Food &amp; Coffee</a><br/>
+        <a href="#">Espresso Bars</a><br/>
+        <a href="#">Cold Brew</a><br/>
+        <a href="#">Energy Drinks</a>
+      </p>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © 2025 King Street Coffee Guide · Charleston, SC · An independent local directory
+    &nbsp;|&nbsp;
+    <a href="#">Terms of Service</a>
+    &nbsp;|&nbsp;
+    <a href="#">Privacy Statement</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

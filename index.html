@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>King Street Coffee Shop | Charleston, SC</title>
+  <meta name="description" content="Discover the best coffee shops on King Street Charleston SC. Lattes, espresso, energy drinks, and great food near King Street."/>
+  <meta name="keywords" content="king street coffee shop, king street coffee charleston, coffee shop charleston sc, best coffee king street, sweet palm coffee charleston"/>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+  <style>
+    :root {
+      --off-white: #f9f7f4;
+      --dark: #1e1e1e;
+      --mid: #3a3a3a;
+      --light-gray: #e8e4de;
+      --accent: #c07d3e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: #fff;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Lora', serif; }
+
+    /* ── NAV ── */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      background: #fff;
+      border-bottom: 1px solid var(--light-gray);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-right a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-right a:hover { color: var(--accent); }
+
+    .btn-order {
+      background: var(--dark);
+      color: #fff !important;
+      padding: 9px 24px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-order:hover { background: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 540px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.5) 0%,
+        rgba(0,0,0,0.2) 55%,
+        transparent 100%
+      );
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 52px 60px;
+      color: #fff;
+    }
+
+    .hero-text .eyebrow {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+      opacity: 0.9;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .hero-text .tagline {
+      font-size: 1rem;
+      opacity: 0.82;
+      margin-bottom: 24px;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      background: var(--dark);
+      color: #fff;
+      padding: 11px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-hero:hover { background: var(--accent); color: #fff; }
+
+    /* ── LEARN SECTION ── */
+    .learn-section {
+      padding: 64px 60px;
+      background: #fff;
+    }
+
+    .learn-section > h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 34px;
+      color: var(--dark);
+    }
+
+    .learn-card img {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .learn-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .learn-card p {
+      font-size: 0.93rem;
+      color: #5a5a5a;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .text-link {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 2px solid var(--dark);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .text-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── PHOTO GRID ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 290px 290px;
+      gap: 0;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222;
+      color: rgba(255,255,255,0.7);
+      padding: 52px 60px 24px;
+    }
+
+    footer h5 {
+      color: #fff;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    footer p { font-size: 0.88rem; line-height: 2; margin: 0; }
+
+    footer a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      line-height: 2;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    .open-dot {
+      display: inline-block;
+      width: 9px; height: 9px;
+      background: #5caa72;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .footer-links { margin-top: 14px; }
+    .footer-links a {
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      text-decoration: underline;
+      margin-right: 18px;
+    }
+
+    .footer-social { margin-top: 14px; }
+    .footer-social a {
+      font-size: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      margin-right: 14px;
+      text-decoration: none;
+    }
+
+    .footer-social a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 36px;
+      padding-top: 18px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 767px) {
+      .top-nav { padding: 12px 20px; }
+      .hero { height: 400px; }
+      .hero-text { padding: 30px 24px; }
+      .hero-text h1 { font-size: 2rem; }
+      .learn-section { padding: 40px 20px; }
+      .photo-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 220px);
+      }
+      footer { padding: 40px 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <img
+    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80"
+    alt="King Street Coffee Shop Charleston SC"
+  />
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <p class="eyebrow">Welcome to</p>
+    <h1>King Street Coffee Shop</h1>
+    <p class="tagline">Your King Street Charleston Coffee Guide</p>
+    <a href="#" target="_blank" rel="noopener" class="btn-hero">Coffee Shop Directory</a>
+  </div>
+</section>
+
+<!-- ── LEARN MORE ── -->
+<section class="learn-section" id="directory">
+  <h2>Learn more about King Street Coffee</h2>
+  <div class="row g-5">
+
+    <div class="col-md-6">
+      <div class="learn-card">
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80"
+          alt="Coffee latte King Street Charleston"
+        />
+        <h3>Taste the difference</h3>
+        <p>Our directory features a diverse selection of King Street coffee shops — from precision specialty bars to cozy all-day cafés — catering to a wide range of tastes and preferences.</p>
+        <a href="#directory" class="text-link">View Directory</a>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="learn-card">
+        <img
+          src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=900&q=80"
+          alt="Coffee food and drinks Charleston"
+        />
+        <h3>Experience our Hospitality Today</h3>
+        <p>We're excited to welcome you to where you'll find creamy lattes, vibrant energy drinks, and fresh food like the beloved chicken caesar wrap, all sure to leave you smiling.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PHOTO GRID ── -->
+<div class="photo-grid">
+  <img
+    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=80"
+    alt="Coffee shop interior King Street Charleston"
+  />
+  <img
+    src="food1.jpg"
+    alt="shops Coffee"
+  />
+  <img
+    src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=900&q=80"
+    alt="Latte art Charleston coffee shop"
+  />
+  <img
+    src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=900&q=80"
+    alt="Energy drinks Charleston"
+  />
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="row g-5">
+
+    <div class="col-md-5">
+      <h5>King Street &amp; Charleston, SC</h5>
+      <p>
+        <a href="" target="_blank" rel="noopener">coffee shops</a><br/>
+        King Street, Charleston, SC<br/>
+        <span class="open-dot"></span><span style="color:#fff; font-weight:600;">Open Now</span>
+      </p>
+     
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h5>King Street Coffee Directory</h5>
+      <p>
+        <a href="#">Black Tap Craft Coffee</a><br/>
+        <a href="#">The Daily</a><br/>
+        <a href="#">Kudu Coffee &amp; Craft Beer</a><br/>
+        <a href="#">Revelator Coffee</a><br/>
+        <a href="#">Bitty &amp; Beau's Coffee</a><br/>
+        <a href="#">Mercantile &amp; Mash</a><br>
+        <a href="www.sweetpalmcoffee.com">Sweet Palm Cafe</a>
+      </p>
+    </div>
+
+    <div class="col-md-3">
+      <h5>Explore</h5>
+      <p>
+        <a href="#">Espresso Bars</a><br/>
+        <a href="#">Cold Brew</a><br/>
+        <a href="#">Food + Coffee</a><br/>
+        <a href="#">Energy Drinks</a><br/>
+        <a href="#">Work-Friendly</a>
+      </p>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    © 2025 King Street Coffee Guide · Charleston, SC · An independent local directory
+    &nbsp;|&nbsp;
+    <a href="#">Terms of Service</a>
+    &nbsp;|&nbsp;
+    <a href="#">Privacy Statement</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
